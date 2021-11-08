@@ -1,15 +1,21 @@
 
-#ifndef BITMAPFILEHEADER_H_
-#define BITMAPFILEHEADER_H_
+// #ifndef BITMAPFILEHEADER_H_
+// #define BITMAPFILEHEADER_H_
+
+#pragma once
 
 #include<cstdint> // making int 32 bit or 4 bytes explicitly
 
 using namespace std;
 
-#pragma pack(2) // to get rid of the padding in memory between the struck elements and have 2 byte boundaries 
-// In C++, if we have stuct like this , it will align data with padding in the way thats most efficient and we cant allow that here
+
 
 namespace coveofprogramming{
+
+// to get rid of the padding in memory between the struck elements and have 2 byte boundaries 
+// In C++, if we have stuct like this , it will align data with padding in the way thats most efficient and we cant allow that here
+#pragma pack(2)
+
 
 struct BitmapFileHeader{
     char header[2] {'B', 'M'};
@@ -19,6 +25,9 @@ struct BitmapFileHeader{
 
 };
 
+
+
 }
 
-#endif
+
+//#endif
