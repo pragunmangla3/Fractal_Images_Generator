@@ -9,13 +9,12 @@
 using namespace std;
 
 
+#pragma pack(2)
 
 namespace coveofprogramming{
 
 // to get rid of the padding in memory between the struck elements and have 2 byte boundaries 
 // In C++, if we have stuct like this , it will align data with padding in the way thats most efficient and we cant allow that here
-#pragma pack(2)
-
 
 struct BitmapFileHeader{
     char header[2] {'B', 'M'};

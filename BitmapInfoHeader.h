@@ -1,17 +1,14 @@
-// #ifndef BITMAPINFOHEADER_H_
-// #define BITMAPINFOHEADER_H_
+
 
 #pragma once
 
 #include<cstdint>
-
 using namespace std;
 
 
-
+#pragma pack(2)  
+ 
 namespace coveofprogramming{
-
-#pragma pack(2)    
 
 struct BitmapInfoHeader{
     int32_t headerSize{40};  // represents the total size of this struct. Int32_t -> 4bytes, Int16_t -> takes 2 bytes
@@ -33,4 +30,3 @@ struct BitmapInfoHeader{
 }
 
 
-//#endif
