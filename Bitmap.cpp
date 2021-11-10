@@ -2,9 +2,6 @@
 #include<fstream>
 #include "Bitmap.h"
 
-// #include "BitmapFileHeader.h"
-// #include "BitmapInfoHeader.h"
-
 
 
 using namespace caveofprogramming;
@@ -37,7 +34,7 @@ bool Bitmap::write(string filename){
 
     file.write((char *)&fileHeader,sizeof(fileHeader)); // file.write expect a char* pointer and number of bytes to write
     file.write((char *)&infoHeader,sizeof(infoHeader));
-    file.write((char *)&m_pPixels,m_width*m_height*3);
+    file.write((char *)m_pPixels.get(),m_width*m_height*3);
 
     file.close();
 
@@ -49,7 +46,21 @@ bool Bitmap::write(string filename){
     return true;
 }
 
+
+
+
 void Bitmap::setPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue){
+  // In bitmap, y is 0 at bottom and increases to top, whereas x is 0 at left and max at right
+
+ uint8_t *pPixel = m_pPixels.get();           // pointer that points to memory block at x and y coordinate (after moving it in the next line)
+
+ pPixel += (y*3)*m_width + (x*3);             // y*m_width is no. of pixel or number of byte, if each pixel is 1 byte -> all the row before the one in focus, then we move forward by x columns. 3 colors, so 3*
+
+ // stored in reverse order -> blue,green and red instead of red green and blue-> due to little endian format  
+ pPixel[0] = blue;
+ pPixel[1] = green;
+ pPixel[2] = red;
+
 
 }
 
