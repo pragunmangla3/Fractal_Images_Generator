@@ -1,7 +1,7 @@
 # Fractal_Images_Generator 
 It generates fractal images through algorithms in form of bitmap images
 
-This software has been created to produce mandelbrot images, also know as got image. 
+This software has been created to produce mandelbrot images, also know as god image. 
 
 I have used "Histogram- coloring" algorithm to provide color to each pixel of the image based upon number of iterations that pixel falls into.
 
